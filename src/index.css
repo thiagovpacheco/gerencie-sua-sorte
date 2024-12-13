@@ -1,3 +1,380 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #0B1221;
+  color: #FFFFFF;
+  font-family: 'Poppins', sans-serif;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+:root {
+  --dark-bg: #0F172A;
+  --darker-bg: #070B14;
+  --purple-accent: #8A2BE2;
+  --purple-light: #9F6EFF;
+  --purple-dark: #4B0082;
+  --card-bg: #1E293B;
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes logoPulse {
+  0% {
+    filter: drop-shadow(0 0 2px rgba(138, 43, 226, 0.4));
+  }
+  50% {
+    filter: drop-shadow(0 0 8px rgba(138, 43, 226, 0.6));
+  }
+  100% {
+    filter: drop-shadow(0 0 2px rgba(138, 43, 226, 0.4));
+  }
+}
+
+@keyframes cloverPulse {
+  0% {
+    filter: drop-shadow(0 0 2px rgba(75, 0, 130, 0.4));
+  }
+  50% {
+    filter: drop-shadow(0 0 8px rgba(138, 43, 226, 0.6));
+  }
+  100% {
+    filter: drop-shadow(0 0 2px rgba(75, 0, 130, 0.4));
+  }
+}
+
+@keyframes textPulse {
+  0% {
+    text-shadow: 0 0 2px rgba(138, 43, 226, 0.4);
+    opacity: 0.8;
+  }
+  50% {
+    text-shadow: 0 0 8px rgba(138, 43, 226, 0.8);
+    opacity: 1;
+  }
+  100% {
+    text-shadow: 0 0 2px rgba(138, 43, 226, 0.4);
+    opacity: 0.8;
+  }
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: 0.3rem;
+  width: 100%;
+}
+
+.purple-glow {
+  box-shadow: 0 0 20px rgba(138, 43, 226, 0.2);
+}
+
+.input-dark {
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(138, 43, 226, 0.2);
+  transition: all 0.3s ease;
+}
+
+.input-dark:focus {
+  border-color: var(--purple-accent);
+  box-shadow: 0 0 0 2px rgba(138, 43, 226, 0.2);
+  background: rgba(15, 23, 42, 0.8);
+}
+
+.purple-button {
+  background: linear-gradient(135deg, var(--purple-accent) 0%, var(--purple-dark) 100%);
+  transition: all 0.3s ease;
+}
+
+.purple-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 20px rgba(138, 43, 226, 0.4);
+}
+
+.progress-bar-bg {
+  background: rgba(15, 23, 42, 0.6);
+}
+
+.progress-bar-fill {
+  background: linear-gradient(135deg, var(--purple-accent) 0%, var(--purple-light) 100%);
+}
+
+.table-header {
+  background: rgba(15, 23, 42, 0.8);
+  border-bottom: 2px solid rgba(138, 43, 226, 0.2);
+}
+
+.table-row-even {
+  background: rgba(30, 41, 59, 0.4);
+}
+
+.table-row-odd {
+  background: rgba(15, 23, 42, 0.4);
+}
+
+.stop-loss { color: #ff4444; }
+.stop-green { color: #00C851; }
+
+.warning-text {
+  animation: textPulse 3s ease-in-out infinite;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.warning-container {
+  padding: 1rem;
+  border-radius: 0.5rem;
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(138, 43, 226, 0.2);
+}
+
+.title {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+  font-size: 3.2rem;
+  color: #FFFFFF;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-align: center;
+  line-height: 1;
+  padding: 8px;
+  margin-bottom: 0.5rem;
+  text-shadow: 
+    0 0 2px rgba(255, 255, 255, 0.8),
+    0 0 4px rgba(255, 255, 255, 0.4);
+  -webkit-text-stroke: 1px rgba(138, 43, 226, 0.4);
+}
+
+@media (max-width: 640px) {
+  .title {
+    font-size: 2.8rem;
+  }
+}
+
+.title span {
+  color: #8A2BE2;
+  text-shadow: 
+    0 0 4px rgba(138, 43, 226, 0.8),
+    0 0 8px rgba(138, 43, 226, 0.4);
+  -webkit-text-stroke: 1px #8A2BE2;
+  filter: brightness(1.2);
+}
+
+.form-group {
+  margin-bottom: 0.5rem;
+}
+
+.form-label {
+  margin-bottom: 0.25rem;
+}
+
+.dark-bg {
+  background-color: #0B1221;
+  min-height: 100vh;
+  padding: 0.75rem;
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .title {
+    font-size: 2.8rem;
+    padding: 8px;
+  }
+
+  .glass-card {
+    padding: 1rem;
+  }
+
+  input[type="number"],
+  input[type="text"] {
+    font-size: 0.95rem;
+    padding: 0.5rem;
+  }
+
+  button {
+    padding: 0.5rem 1rem;
+    font-size: 0.95rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .title {
+    font-size: 2rem;
+    letter-spacing: 1px;
+    padding: 6px;
+  }
+
+  .glass-card {
+    padding: 0.75rem;
+  }
+
+  input[type="number"],
+  input[type="text"] {
+    font-size: 0.9rem;
+    padding: 0.4rem;
+  }
+
+  button {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9rem;
+  }
+
+  .watermark {
+    font-size: 0.7rem;
+  }
+}
+
+/* Ajustes específicos para telas muito pequenas */
+@media (max-width: 480px) {
+  .title {
+    font-size: 1.5rem;
+  }
+
+  .glass-card {
+    padding: 0.5rem;
+  }
+}
+
+/* Logo styles */
+.logo-container {
+  position: relative;
+}
+
+.logo-container img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.logo-pulse {
+  animation: logoPulse 3s ease-in-out infinite;
+}
+
+.clover-icon {
+  animation: cloverPulse 3s ease-in-out infinite;
+}
+
+.watermark {
+  position: fixed;
+  pointer-events: none;
+  user-select: none;
+  color: rgba(138, 43, 226, 0.08);
+  font-size: 24px;
+  transform: rotate(-45deg);
+  z-index: 1;
+}
+
+.watermark-1 { top: 20%; left: 10%; }
+.watermark-2 { top: 40%; right: 15%; }
+.watermark-3 { bottom: 25%; left: 20%; }
+.watermark-4 { bottom: 15%; right: 25%; }
+
+/* Remove spinner dos inputs numéricos */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+@media (max-width: 768px) {
+  .clover-icon {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+/* Estilos do Modal */
+.modal-overlay {
+  backdrop-filter: blur(4px);
+}
+
+.registration-iframe {
+  background: #1E1E1E;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.modal-content {
+  animation: modalFadeIn 0.3s ease-out;
+  background: rgba(11, 18, 33, 0.95);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 640px) {
+  .modal-content {
+    margin: 0 8px;
+  }
+  
+  .registration-iframe {
+    border-radius: 8px;
+  }
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Estilo do botão do modal */
+.modal-button {
+  background: linear-gradient(45deg, #8A2BE2, #4B0082);
+  transition: all 0.3s ease;
+}
+
+.modal-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(138, 43, 226, 0.4);
+}
+
+/* Estilos para input de arquivo */
+input[type="file"] {
+  color: transparent;
+}
+
+input[type="file"]::-webkit-file-upload-button {
+  visibility: hidden;
+}
+
+.file-input-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.file-input-wrapper input[type="file"] {
+  position: absolute;
+  top: 0;
+  right: 0;
+  min-width: 100%;
+  min-height: 100%;
+  font-size: 100px;
+  text-align: right;
+  filter: alpha(opacity=0);
+  opacity: 0;
+  outline: none;
+  cursor: pointer;
+  display: block;
+}
